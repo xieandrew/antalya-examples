@@ -71,11 +71,20 @@ kubectl apply -f vector.yaml
 
 The helm script is in the helm directory. It's under development.
 
-In the `helm` directory, run the following to install the helm chart:
+##### EKS
+
+In the `helm` directory, run the following to install the helm chart on EKS.
+Replace `bucket-name` with your S3 bucket name.
 
 ```shell
-helm install antalya-test ./
+helm install antalya-test ./ --set iceRestCatalog.catalogBucket=bucket-name
 ```
+
+This requires a service account named `ice-rest-catalog` set up from the instructions [here](ice/README.md).
+To use a different service account name, add `--set iceRestCatalog.serviceAccountName=new-account-name` to
+the end of the `helm install` command above.
+
+##### Minikube
 
 On Minikube, run:
 
@@ -84,6 +93,8 @@ helm install antalya-test ./ -f values-minikube.yaml
 ```
 
 This will deploy MinIO for local object storage.
+
+##### Uninstalling
 
 To uninstall, run:
 

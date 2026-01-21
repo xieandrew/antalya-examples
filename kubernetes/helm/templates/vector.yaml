@@ -16,6 +16,8 @@ spec:
         nodes:
         - host: keeper-keeper
           port: 2181
+    users:
+      root/password: topsecret
     files:
       config.d/remote_servers.xml: |
         <clickhouse>

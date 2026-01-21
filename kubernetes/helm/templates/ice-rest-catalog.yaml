@@ -8,10 +8,12 @@ stringData:
     uri: etcd:http://ice-rest-catalog-etcd:2379
     warehouse: s3://{{ .Values.iceRestCatalog.catalogBucket }}
     s3:
+{{ if .Values.minio.enabled }}
       endpoint: {{ .Values.iceRestCatalog.s3.endpoint }}
-      pathStyleAccess: true
       accessKeyID: {{ .Values.iceRestCatalog.s3.accessKeyID }}
       secretAccessKey: {{ .Values.iceRestCatalog.s3.secretAccessKey }}
+{{ end }}
+      pathStyleAccess: true
       region: {{ .Values.iceRestCatalog.s3.region }}
     bearerTokens:
     - value: foo
@@ -50,6 +52,9 @@ spec:
         prometheus.io/scrape: "true"
         prometheus.io/port: "5001"
     spec:
+{{ if .Values.iceRestCatalog.serviceAccountName }}
+      serviceAccountName: {{ .Values.iceRestCatalog.serviceAccountName }}
+{{ end }}
       volumes:
         - name: etc
           secret:

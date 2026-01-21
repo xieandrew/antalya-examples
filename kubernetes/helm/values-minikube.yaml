@@ -60,6 +60,7 @@ swarm:
 # Ice Rest Catalog settings
 iceRestCatalog:
   catalogBucket: warehouse
+  serviceAccountName:
   s3:
     endpoint: "http://minio:9000"
     accessKeyID: minio

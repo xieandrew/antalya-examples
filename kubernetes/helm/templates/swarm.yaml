@@ -16,6 +16,17 @@ spec:
         nodes:
         - host: keeper-keeper
           port: 2181
+    users:
+      cache_enabled/networks/ip: "::/0"
+      cache_enabled/password: topsecret
+      cache_enabled/profile: default
+    profiles:
+      default/enable_filesystem_cache: 0
+      #default/enable_filesystem_cache_log: 1
+      default/filesystem_cache_name: "s3_parquet_cache"
+      cache_enabled/enable_filesystem_cache: 1
+      #cache_enabled/enable_filesystem_cache_log: 1
+      cache_enabled/filesystem_cache_name: "s3_parquet_cache"
     files:
       config.d/remote_servers.xml: |
         <clickhouse>
