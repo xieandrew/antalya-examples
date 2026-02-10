@@ -64,7 +64,7 @@ SETTINGS object_storage_cluster = 'swarm'
 The iceberg() function is an alias for icebergS3(). See the upstream docs for more information. 
 
 It's important to note that the iceberg() table function expects to see data
-and metadata directores after the URL provided as an argument. In other words, 
+and metadata directories after the URL provided as an argument. In other words, 
 the Iceberg table must be arranged in object storage as follows:
 
 * http://minio:9000/warehouse/data/metadata - Contains Iceberg metadata files for the table
@@ -147,7 +147,7 @@ To use auto-discovery, you must enable Keeper by adding a `<zookeeper>`
 tag similar to the following example. This must be done for all servers
 including swarm servers as well as ClickHouse servers that invoke them. 
 
-```
+```xml
 <clickhouse>
     <zookeeper>
         <node>
@@ -159,7 +159,7 @@ including swarm servers as well as ClickHouse servers that invoke them.
 ```
 
 You must also enable automatic cluster discovery. 
-```
+```xml
     <allow_experimental_cluster_discovery>1</allow_experimental_cluster_discovery>
 ```
 
@@ -169,7 +169,7 @@ When using a single Keeper for all servers, add the following remote server
 definition to each swarm server configuration. This provides a path on which
 the server will register. 
 
-```
+```xml
     <remote_servers>
         <!-- Swarm cluster built using remote discovery -->
         <swarm>
@@ -185,7 +185,7 @@ Add the following remote server definition to each server that _reads_ the
 swarm server list using remote discovery. Note the `<observer>` tag, which 
 must be set to prevent non-swarm servers from joining th cluster. 
 
-```
+```xml
     <remote_servers>
         <!-- Swarm cluster built using remote discovery. -->
         <swarm>
@@ -207,7 +207,7 @@ an auxiliary keeper that handles only auto-discovery. Here is the
 configuration for such a Keeper ensemble. ClickHouse will 
 use this Keeper ensemble for auto-discovery. 
 
-```
+```xml
 <clickhouse>
     <!-- Zookeeper for registering swarm members. -->
     <auxiliary_zookeepers>
@@ -218,7 +218,7 @@ use this Keeper ensemble for auto-discovery.
             </node>
         </registry>
     </auxiliary_zookeepers>
-<clickhouse>
+</clickhouse>
 ```
 
 This is in addition to the settings described in previous sections, 
@@ -275,7 +275,7 @@ S3 filesystem cache requires special configuration each swarm host.
 Add a definition like the following to /etc/clickhouse/filesystem_cache.xml 
 to set up a filesystem cache. 
 
-```
+```yaml
 spec:                                                                          
   configuration:
     files:
@@ -311,7 +311,7 @@ enable_filesystem_cache = 1, filesystem_cache_name = 's3_parquet_cache'
 You can also set cache values in user profiles as shown by the following 
 settings in Altinity operator format:
 
-```
+```yaml
 spec:
   configuration:
     profiles:

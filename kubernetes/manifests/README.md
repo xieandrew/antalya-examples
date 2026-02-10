@@ -37,7 +37,7 @@ but are suboptimal for caches.
 ## NVMe SSD swarm support (experimental)
 
 The [nvme](./nvme) directory contains work in progress. See the
-[README.md](nvme/README.md) for more information. Otherwise skip this
+[README.md](nvme/README.md) for more information. Otherwise, skip this
 section. 
 
 ## Verify installation

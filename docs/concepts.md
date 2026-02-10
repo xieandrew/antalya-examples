@@ -44,9 +44,9 @@ templates so that the report is automatically tagged to Project Antalya.
 ### Iceberg Database Engine
 
 The Iceberg database engine encapsulates the tables in a single Iceberg
-REST catalog.  REST catalogs enumerate the metadata for Iceberg tables,
+REST catalog. REST catalogs enumerate the metadata for Iceberg tables,
 and the database engine makes them look like ClickHouse tables. This is
-the most natural way to interate with Iceberg tables.
+the most natural way to integrate with Iceberg tables.
 
 ### Iceberg Table Engine and Table Function
 
@@ -58,7 +58,7 @@ can use the path.
 ### Hive and Plain S3
 
 Antalya can also read Parquet data directly from S3 as well as Hive
-format.  The capabilities are largely identical to upstream ClickHouse.
+format. The capabilities are largely identical to upstream ClickHouse.
 
 ## Swarm Clusters
 
@@ -74,7 +74,7 @@ table schema, for example by connecting to an Iceberg database using the
 
 You can dispatch a query on S3 files or Iceberg tables to a swarm
 cluster by adding the `object_storage_cluster = <swarm cluster name>`
-setting to the query. You can also set this value in a profile or as as
+setting to the query. You can also set this value in a profile or as a
 session setting.
 
 The Antalya initiator will parse the query, then dispatch subqueries to

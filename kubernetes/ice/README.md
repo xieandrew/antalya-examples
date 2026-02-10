@@ -1,20 +1,20 @@
 # Configuring an Ice REST catalog in Kubernetes
 
 Iceberg REST catalogs enable ClickHouse to access Iceberg catalogs as if
-they were databases.  This directory show how to leverage the Altinity 
+they were databases. This directory show how to leverage the Altinity 
 [Ice Toolset](https://github.com/Altinity/ice) to add an Iceberg REST
 catalog to an existing EKS cluster.
 
 ## Prerequisites
 
 You should have an EKS cluster already setup using the Terraform 
-[main.tf](../kubernetes/main.tf) script. This procedure will also 
+[main.tf](../terraform/main.tf) script. This procedure will also 
 work for EKS clusters that you create by other means.  
 
 You will also need eksctl. Install it following the 
 [eksctl installation instructions](https://eksctl.io/installation/). 
 
-Finally, these examples assume you have an antalya namespace that is
+Finally, these examples assume you have an `antalya` namespace that is
 also the default. 
 
 ## IAM Configuration
@@ -32,7 +32,7 @@ aws eks describe-cluster --name my-eks-cluster \
 
 Next, use eksctl to create a Kubernetes ServiceAccount that has
 privileges to read and write to S3 buckets. The attached policy is
-suitable for testing only--it gives read/write access to all buckets.
+suitable for testing only—it gives read/write access to all buckets.
 In a production environment you would attach a more restrictive policy
 that gives privileges on certain buckets.
 

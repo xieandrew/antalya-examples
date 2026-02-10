@@ -1,7 +1,7 @@
 # Antalya Kubernetes Example
 
 This directory contains samples for querying a Parquet-based data lake
-lake using AWS EKS, AWS S3, and Project Antalya. 
+using AWS EKS, AWS S3, and Project Antalya. 
 
 ## Quickstart
 
@@ -24,7 +24,7 @@ terraform apply
 aws eks update-kubeconfig --name my-eks-cluster  # Default cluster name
 ```
 
-Create a namespace named antalya and make it the default. (You don't
+Create a namespace named `antalya` and make it the default. (You don't
 have to do this but the examples assume it.)
 
 ```
@@ -67,6 +67,8 @@ kubectl apply -f swarm.yaml
 kubectl apply -f vector.yaml
 ```
 
+See the [manifests README.md](manifests/README.md) for more detailed information.
+
 #### Using helm
 
 The helm script is in the helm directory. It's under development.
@@ -76,6 +78,8 @@ In the `helm` directory, run the following to install the helm chart:
 ```shell
 helm install antalya-test ./
 ```
+
+##### MiniKube
 
 On Minikube, run:
 

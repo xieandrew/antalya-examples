@@ -57,23 +57,16 @@ Antalya will implement these goals through the following concrete features:
 6. Maintain full compability with upstream ClickHouse® features and
    bug fixes.
 
-## Roadmap
 
-[Project Antalya Roadmap 2025 - Real-Time Data Lakes](https://github.com/Altinity/ClickHouse/issues/804)
+## Getting Started
 
-## Licensing
+See the [Antalya Setup Guide](docs/setup.md) to learn how to set up Antalya on different environments.
 
-Project Antalya code is licensed under Apache 2.0 license. There are no feature
-hold-backs.
+If you want to quickly try out Antalya locally using Docker Compose, see the [Docker Quick Start](./docker/README.md).
 
-## Quick Start
+### Scalable Swarm Example
 
-See the [Docker Quick Start](./docker/README.md) to try out Antalya in
-a few minutes using Docker Compose on a laptop.
-
-## Scalable Swarm Example
-
-For a fully functional swarm cluster implemention, look at the
+For a fully functional swarm cluster implementation, look at the
 [kubernetes](kubernetes/README.md) example. It demonstrates use of swarm
 clusters on a large blockchain dataset stored in Parquet.
 
@@ -97,6 +90,7 @@ Check for the latest build on
 
 Look in the docs directory for current documentation. More is on the way. 
 
+* [Antalya Setup Guide](docs/setup.md)
 * [Project Antalya Concepts Guide](docs/concepts.md) 
 * [Command and Configuration Reference](docs/reference.md)
 
@@ -104,7 +98,16 @@ See also the [Project Antalya Launch Video](https://altinity.com/events/scale-cl
 for an introduction to Project Antalya and a demo of performance.
 
 The [Altinity Blog](https://altinity.com/blog/) has regular articles 
-on Project Antalya features and performance. 
+on Project Antalya features and performance.
+
+## Roadmap
+
+[Project Antalya Roadmap 2026](https://github.com/Altinity/ClickHouse/issues/1359)
+
+## Licensing
+
+Project Antalya code is licensed under Apache 2.0 license. There are no feature
+hold-backs.
 
 ## Code
 
