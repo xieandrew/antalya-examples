@@ -14,7 +14,9 @@ stringData:
       secretAccessKey: {{ .Values.iceRestCatalog.s3.secretAccessKey }}
       region: {{ .Values.iceRestCatalog.s3.region }}
     bearerTokens:
-    - value: foo
+    - value: {{ .Values.iceRestCatalog.bearerToken }}
+    anonymousAccess:
+      enabled: false
 ---
 apiVersion: v1
 kind: Service
@@ -56,8 +58,7 @@ spec:
             secretName: ice-rest-catalog
       containers:
         - name: iceberg
-          # image: altinity/ice-rest-catalog:latest
-          image: altinity/ice-rest-catalog:debug-with-ice-0.0.0-SNAPSHOT
+          image: "{{ .Values.iceRestCatalog.image.repository }}:{{ .Values.iceRestCatalog.image.tag }}"
           imagePullPolicy: "Always" # for test purposes only
           ports:
             - containerPort: 5000 # iceberg

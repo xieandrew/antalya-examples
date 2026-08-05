@@ -11,7 +11,7 @@ keeper:
     size: "25Gi"
   image:
     repository: "altinity/clickhouse-keeper"
-    tag: "25.8.12.20747.altinityantalya"
+    tag: "26.3.13.20001.altinityantalya"
     pullPolicy: "IfNotPresent"
 
 # ClickHouse Vector settings
@@ -32,7 +32,7 @@ vector:
         effect: "NoSchedule"
   image:
     repository: "altinity/clickhouse-server"
-    tag: "25.8.12.20747.altinityantalya"
+    tag: "26.3.13.20001.altinityantalya"
 
 # ClickHouse Swarm settings
 swarm:
@@ -66,11 +66,12 @@ swarm:
             topologyKey: "kubernetes.io/hostname"
   image:
     repository: "altinity/clickhouse-server"
-    tag: "25.8.12.20747.altinityantalya"
+    tag: "26.3.13.20001.altinityantalya"
 
 # Ice Rest Catalog settings
 iceRestCatalog:
   catalogBucket: bucket1
+  bearerToken: foo
   s3:
     endpoint: ""
     accessKeyID: ""
@@ -78,6 +79,9 @@ iceRestCatalog:
     region: us-east-1
   storage:
     class: "" # Defaults to global.storageClass if empty
+  image:
+    repository: "altinity/ice-rest-catalog"
+    tag: "debug-with-ice-0.19.0"
 
 # etcd settings
 etcd:
